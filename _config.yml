@@ -1,0 +1,10 @@
+theme: jekyll-theme-architect
+
+author: Roy Geagea
+
+author_email: roygeagea@gmail.com
+
+title: AWS - Host dynamic website using three-tier architecture 
+
+plugins: 
+  - jekyll-sitemap
