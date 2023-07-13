@@ -102,7 +102,8 @@ To facilitate internal communication within your AWS VPC, it is essential to con
 6) With the route table created, select it from the list and choose the "Subnet associations" tab.
 7) Click on "Edit subnet associations" and select the <b>Private App Subnet AZ1</b> and <b>Private Data Subnet AZ1</b>
 8) Save the changes to associate the route table with the private subnets in AZ1.
-9) Repeat the steps for private subnets in AZ2 (refer to the architecture graph attached at the beginning of the article)
+9) Then add route for destination <b>0.0.0.0/0</b> to target the NAT Gateway
+10) Repeat the steps for private subnets in AZ2 (refer to the architecture graph attached at the beginning of the article)
 
 ### 10- Create the security groups
 Properly configuring security groups is crucial to maintain the security and integrity of your AWS VPC. In this section, I will guide you through the steps to create and configure security groups for various components within your infrastructure.
@@ -418,5 +419,7 @@ To create a new Auto Scaling Group using an EC2 launch template and the new AMI,
     - Configure the network settings, including the desired subnets and security groups.
     - Define the scaling policies based on your application requirements.
     - Review the configuration details and click on "Create Auto Scaling Group" to create the group.
+
+## Summary
 
 By following these steps, you will have created a new Auto Scaling Group using the EC2 launch template and the new AMI. The Auto Scaling Group will automatically manage the desired number of instances based on the defined scaling policies, ensuring high availability and scalability for your application.
