@@ -17,7 +17,7 @@ Here's how you can ensure that DNS resolution and DNS hostnames are enabled when
 
 1) Navigate to the AWS Management Console and open the Amazon VPC service.
 2) Click on "Your VPCs" in the navigation pane, then select "Create VPC".
-3) Provide a name and specify the desired IPv4 CIDR block for your VPC. You can also choose to enable IPv6 CIDR block if required.
+3) Provide a name and specify the desired IPv4 CIDR block for your VPC <b>10.0.0.0/16</b>. You can also choose to enable IPv6 CIDR block if required.
 4) Under the "DNS resolution" section, make sure to select the option to "Enable DNS resolution". This setting allows your VPC to resolve domain names.
 5) In the "DNS hostnames" section, select the option to "Enable DNS hostnames". Enabling this option will provide your resources with meaningful domain names.
 6) Finally, click on "Create VPC" to create your VPC with the specified DNS settings.
