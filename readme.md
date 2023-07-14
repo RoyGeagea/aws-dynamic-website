@@ -5,6 +5,8 @@ We are developing a robust and resilient E-commerce application in the us-east-1
 
 ![](architecture.png)
 
+## Prerequisites
+Have basic AWS knowledge
 
 ## Steps
 
@@ -41,7 +43,7 @@ Note) Before proceeding, use the CIDR.xyz website (https://cidr.xyz/) to visuali
 5) Enter the name <b>Public Subnet AZ1</b> for the subnet and specify the desired IPv4 CIDR block <b>10.0.0.0/24</b>
 6) Ensure that the "Auto-assign public IPv4 address" option is enabled in the subnet. This allows instances launched within the subnet to have public IP addresses.
 7) Click on "Create subnet" to create the public subnets across the selected AZs.
-8) Repeat the same steps for create a new subnet in <b>us-east-1b</b> Availability Zone with CIDR of <b>10.0.0.1/24</b>
+8) Repeat the same steps for create a new subnet in <b>us-east-1b</b> Availability Zone with CIDR of <b>10.0.1.0/24</b>
 
 ### 4- Create a public route table
 To enable seamless communication to and from your public subnets within your AWS VPC, it's important to configure a dedicated public route table. This route table will define the paths for traffic to reach the internet and other resources within your VPC. Let's walk through the steps of creating a public route table and assigning it to the existing public subnets:
@@ -69,17 +71,17 @@ Let's explore the step-by-step process of creating four private subnets, with tw
 1) Open the AWS Management Console and navigate to the Amazon VPC service.
 2) Click on "Subnets" in the navigation pane and select "Create subnet."
 3) Choose the VPC where you want to create the subnets.
-4) Select <b>us-east-1a</b> Availability Zone from the drop-down menu and set the CIDR to <b>10.0.0.2/24</b>.
+4) Select <b>us-east-1a</b> Availability Zone from the drop-down menu and set the CIDR to <b>10.0.2.0/24</b>.
 5) Enter a name for the subnet, <b>Private App Subnet AZ1</b>
-6) Repeat steps to create the second subnet for the application layer in the <b>us-east-1b</b> AZ, with name <b>Private App Subnet AZ2</b> and CIDR <b>10.0.0.3/24</b>.
+6) Repeat steps to create the second subnet for the application layer in the <b>us-east-1b</b> AZ, with name <b>Private App Subnet AZ2</b> and CIDR <b>10.0.3.0/24</b>.
 
 ### 7- Create the Data Layer subnets
 1) Open the AWS Management Console and navigate to the Amazon VPC service.
 2) Click on "Subnets" in the navigation pane and select "Create subnet."
 3) Choose the VPC where you want to create the subnets.
-4) Select <b>us-east-1a</b> Availability Zone from the drop-down menu and set the CIDR to <b>10.0.0.4/24</b>.
+4) Select <b>us-east-1a</b> Availability Zone from the drop-down menu and set the CIDR to <b>10.0.4.0/24</b>.
 5) Enter a name for the subnet, <b>Private Data Subnet AZ1</b>
-6) Repeat steps to create the second subnet for the application layer in the <b>us-east-1b</b> AZ, with name <b>Private Data Subnet AZ2</b> and CIDR <b>10.0.0.5/24</b>.
+6) Repeat steps to create the second subnet for the application layer in the <b>us-east-1b</b> AZ, with name <b>Private Data Subnet AZ2</b> and CIDR <b>10.0.5.0/24</b>.
 
 ### 8- Create NAT Gateways in public subnets
 To provide internet access to resources within private subnets of your AWS VPC, you need to create NAT gateways in the public subnets of each Availability Zone (AZ). NAT gateways act as a bridge between your private subnets and the internet, allowing outbound traffic from your private subnets to reach the internet. Let's explore the step-by-step process of creating NAT gateways in the <b>Public Subnet AZ1</b> and <b>Public Subnet AZ2</b>:
