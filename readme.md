@@ -16,20 +16,20 @@ To create a VPC with proper DNS configuration, it's crucial to enable DNS resolu
 Here's how you can ensure that DNS resolution and DNS hostnames are enabled when creating your VPC:
 
 1) Navigate to the AWS Management Console and open the Amazon VPC service.
-2) Click on "Your VPCs" in the navigation pane, then select "Create VPC."
+2) Click on "Your VPCs" in the navigation pane, then select "Create VPC".
 3) Provide a name and specify the desired IPv4 CIDR block for your VPC. You can also choose to enable IPv6 CIDR block if required.
-4) Under the "DNS resolution" section, make sure to select the option to "Enable DNS resolution." This setting allows your VPC to resolve domain names.
-5) In the "DNS hostnames" section, select the option to "Enable DNS hostnames." Enabling this option will provide your resources with meaningful domain names.
+4) Under the "DNS resolution" section, make sure to select the option to "Enable DNS resolution". This setting allows your VPC to resolve domain names.
+5) In the "DNS hostnames" section, select the option to "Enable DNS hostnames". Enabling this option will provide your resources with meaningful domain names.
 6) Finally, click on "Create VPC" to create your VPC with the specified DNS settings.
 
 ### 2- Create an Internet Gateway
 To establish internet connectivity within your AWS VPC, you need to create an Internet Gateway (IGW) and attach it to your VPC. An IGW acts as a bridge between your VPC and the internet, enabling inbound and outbound traffic. Here's how you can create and attach an Internet Gateway to your VPC:
 
 1) Open the AWS Management Console and navigate to the Amazon VPC service.
-2) Click on "Internet Gateways" in the navigation pane and select "Create Internet Gateway."
-3) Provide a name for your Internet Gateway and click on "Create." The IGW will be created and listed in the Internet Gateways section.
-4) Next, select the newly created Internet Gateway from the list and choose "Actions" > "Attach to VPC."
-5) In the "Attach to VPC" dialog box, select your desired VPC from the drop-down menu and click on "Attach."
+2) Click on "Internet Gateways" in the navigation pane and select "Create Internet Gateway".
+3) Provide a name for your Internet Gateway and click on "Create". The IGW will be created and listed in the Internet Gateways section.
+4) Next, select the newly created Internet Gateway from the list and choose "Actions" > "Attach to VPC".
+5) In the "Attach to VPC" dialog box, select your desired VPC from the drop-down menu and click on "Attach".
 Once attached, the Internet Gateway becomes the entry and exit point for internet traffic in your VPC.
 
 ### 3- Create Public Subnets
@@ -37,7 +37,7 @@ To design a well-structured AWS VPC, it's essential to create public subnets acr
 
 Note) Before proceeding, use the CIDR.xyz website (https://cidr.xyz/) to visualize and plan your network architecture. This tool enables you to easily determine the appropriate CIDR block for your VPC and subnets, ensuring efficient IP address allocation.
 1) Open the AWS Management Console and navigate to the Amazon VPC service.
-2) Click on "Subnets" in the navigation pane and select "Create subnet."
+2) Click on "Subnets" in the navigation pane and select "Create subnet".
 3) In the "Create subnet" wizard, choose the VPC where you want to create the subnets.
 4) Select <b>us-east-1a</b> Availability Zone from the drop-down menu
 5) Enter the name <b>Public Subnet AZ1</b> for the subnet and specify the desired IPv4 CIDR block <b>10.0.0.0/24</b>
@@ -49,7 +49,7 @@ Note) Before proceeding, use the CIDR.xyz website (https://cidr.xyz/) to visuali
 To enable seamless communication to and from your public subnets within your AWS VPC, it's important to configure a dedicated public route table. This route table will define the paths for traffic to reach the internet and other resources within your VPC. Let's walk through the steps of creating a public route table and assigning it to the existing public subnets:
 
 1) Open the AWS Management Console and navigate to the Amazon VPC service.
-2) Click on "Route Tables" in the navigation pane and select "Create route table."
+2) Click on "Route Tables" in the navigation pane and select "Create route table".
 3) Choose the VPC you created earlier as the association for the route table.
 4) Provide a name for the route table, <b>Public Route Table</b>, to distinguish it from other route tables within your VPC.
 5) Click on "Create" to create the public route table.
@@ -69,7 +69,7 @@ To establish a secure and well-structured AWS VPC, it is crucial to create priva
 
 Let's explore the step-by-step process of creating four private subnets, with two in each Availability Zone:
 1) Open the AWS Management Console and navigate to the Amazon VPC service.
-2) Click on "Subnets" in the navigation pane and select "Create subnet."
+2) Click on "Subnets" in the navigation pane and select "Create subnet".
 3) Choose the VPC where you want to create the subnets.
 4) Select <b>us-east-1a</b> Availability Zone from the drop-down menu and set the CIDR to <b>10.0.2.0/24</b>.
 5) Enter a name for the subnet, <b>Private App Subnet AZ1</b>
@@ -77,7 +77,7 @@ Let's explore the step-by-step process of creating four private subnets, with tw
 
 ### 7- Create the Data Layer subnets
 1) Open the AWS Management Console and navigate to the Amazon VPC service.
-2) Click on "Subnets" in the navigation pane and select "Create subnet."
+2) Click on "Subnets" in the navigation pane and select "Create subnet".
 3) Choose the VPC where you want to create the subnets.
 4) Select <b>us-east-1a</b> Availability Zone from the drop-down menu and set the CIDR to <b>10.0.4.0/24</b>.
 5) Enter a name for the subnet, <b>Private Data Subnet AZ1</b>
@@ -87,7 +87,7 @@ Let's explore the step-by-step process of creating four private subnets, with tw
 To provide internet access to resources within private subnets of your AWS VPC, you need to create NAT gateways in the public subnets of each Availability Zone (AZ). NAT gateways act as a bridge between your private subnets and the internet, allowing outbound traffic from your private subnets to reach the internet. Let's explore the step-by-step process of creating NAT gateways in the <b>Public Subnet AZ1</b> and <b>Public Subnet AZ2</b>:
 
 1) Open the AWS Management Console and navigate to the Amazon VPC service.
-2) Click on "NAT Gateways" in the navigation pane and select "Create NAT Gateway."
+2) Click on "NAT Gateways" in the navigation pane and select "Create NAT Gateway".
 3) Choose <b>Public Subnet AZ1</b> from the drop-down menu. This subnet should be one of the public subnets you created earlier.
 4) Select the Elastic IP (EIP) allocation method. You can choose to either use an existing EIP or create a new one.
 5) Click on "Create NAT Gateway" to initiate the creation process.
@@ -97,7 +97,7 @@ To provide internet access to resources within private subnets of your AWS VPC, 
 To facilitate internal communication within your AWS VPC, it is essential to configure dedicated route tables for the private subnets in each Availability Zone (AZ). These route tables will define the paths for internal traffic, allowing resources in the private subnets to communicate with each other. Let's explore the step-by-step process of creating route tables for the private subnets in AZ1 and AZ2:
 
 1) Open the AWS Management Console and navigate to the Amazon VPC service.
-2) Click on "Route Tables" in the navigation pane and select "Create route table."
+2) Click on "Route Tables" in the navigation pane and select "Create route table".
 3) Choose the VPC where you want to create the route table.
 4) Provide a name for the route table, <b>Private Route Table AZ1</b>, to indicate the associated AZ.
 5) Click on "Create" to create the route table.
@@ -112,16 +112,16 @@ Properly configuring security groups is crucial to maintain the security and int
 
 1) Creating an ALB Security Group:
     - Open the AWS Management Console and navigate to the Amazon EC2 service.
-    - Click on "Security Groups" in the navigation pane and select "Create Security Group."
-    - Provide a name for the security group, such as "ALBSecurityGroup."
+    - Click on "Security Groups" in the navigation pane and select "Create Security Group".
+    - Provide a name for the security group, such as "ALBSecurityGroup".
     - Add inbound rules to allow HTTP (port 80) and HTTPS (port 443) traffic from anywhere (0.0.0.0/0) for the ALB.
     - Save the changes to create the ALB security group.
 2) Creating an SSH Security Group:
-    - Follow the same steps as above to create a new security group named "SSHSecurityGroup."
+    - Follow the same steps as above to create a new security group named "SSHSecurityGroup".
     - Add an inbound rule to allow SSH (port 22) traffic from your computer IP address by specifying your IP address.
     - Save the changes to create the SSH security group.
 3) Creating a Web Server Security Group:
-    - Repeat the steps to create another security group named "WebServerSecurityGroup."
+    - Repeat the steps to create another security group named "WebServerSecurityGroup".
     - Add inbound rules to allow HTTP (port 80) and HTTPS (port 443) traffic from the ALB security group.
     - Add an inbound rule to allow SSH (port 22) traffic from the SSH security group.
     - Save the changes to create the web server security group.
@@ -135,14 +135,14 @@ To ensure secure and efficient database operations within your AWS VPC, it is im
 
 1) Creating a DB Subnet Group
     - Open the AWS Management Console and navigate to the Amazon RDS service.
-    - Click on "Subnet Groups" in the navigation pane and select "Create DB Subnet Group."
-    - Provide a name for the DB Subnet Group, such as "PrivateDBSubnetGroup."
+    - Click on "Subnet Groups" in the navigation pane and select "Create DB Subnet Group".
+    - Provide a name for the DB Subnet Group, such as "PrivateDBSubnetGroup".
     - Select the VPC where you want to deploy the RDS instance.
     - Choose the private data subnets created earlier and add them to the DB Subnet Group.
     - Save the changes to create the DB Subnet Group.
 
 2) Deploying the RDS Instance
-    - In the Amazon RDS console, click on "Databases" in the navigation pane and select "Create database."
+    - In the Amazon RDS console, click on "Databases" in the navigation pane and select "Create database".
     - Choose the desired database engine, in our case it's MySQL.
     - Specify the necessary configuration details, including the DB instance class, storage, and database name.
     - Select the previously created DB Subnet Group from the dropdown menu.
@@ -169,11 +169,11 @@ To enable EC2 instances to download web files from an S3 bucket, we need to crea
 1) Open the AWS Management Console and navigate to the IAM service.
 2) Click on "Roles" in the navigation pane and select "Create role" to begin creating a new IAM role.
 3) Choose the service that will use this role. In this case, select "EC2" as the service.
-4) Under "Select your use case," select the use case that best matches your requirements. For this scenario, "EC2" should be selected.
-5) On the "Permissions" page, search for and select the policy named "AmazonS3FullAccess." This policy provides full access to Amazon S3 resources.
+4) Under "Select your use case" select the use case that best matches your requirements. For this scenario, "EC2" should be selected.
+5) On the "Permissions" page, search for and select the policy named "AmazonS3FullAccess". This policy provides full access to Amazon S3 resources.
 6) Click on "Next: Tags" to add any tags you want to associate with the IAM role. Tags are optional and can be used for identification and organization purposes.
 7)Click on "Next: Review" to review the role configuration.
-8) Provide a name for the IAM role, such as "EC2S3AccessRole," and add an optional description.
+8) Provide a name for the IAM role, such as "EC2S3AccessRole" and add an optional description.
 9) Review the role details to ensure they match your requirements, and click on "Create role" to create the IAM role.
 
 ### 15- Create a Web Server EC2 instance
@@ -227,7 +227,7 @@ To import a local database file into an Amazon RDS instance, we'll utilize MySQL
     - Launch MySQL Workbench on your local machine.
     - Configure a new connection to the RDS instance using TCP/IP over SSH.
     - Provide the necessary connection details, including the RDS endpoint, SSH host (bastion host public IP), SSH username, and SSH private key (bastion host key pair).
-    - Once connected, go to the "Administrator" tab and select "Data Import/Restore."
+    - Once connected, go to the "Administrator" tab and select "Data Import/Restore".
     - Choose the "Import from Self-Contained File" option and select the [fleetcart.sql](fleetcart.sql) file.
     - Specify the target schema and execute the import process.
     - Once the import is complete, verify the data in the RDS instance.
@@ -270,12 +270,12 @@ To implement an ALB for distributing incoming traffic to web servers, we'll crea
     - Configure the instances with the appropriate security groups (Web Server Security Group)
 2) Create a Target Group for the ALB:
     - Open the AWS Management Console and navigate to the Amazon EC2 service.
-    - Click on "Target Groups" in the navigation pane and select "Create target group."
+    - Click on "Target Groups" in the navigation pane and select "Create target group".
     - Provide a name for the target group, choose the desired protocol (HTTP or HTTPS), and select the appropriate port
-    - Specify the target type as "Instance," and select the two web server instances created earlier.
+    - Specify the target type as "Instance" and select the two web server instances created earlier.
     - Configure any additional settings as required and create the target group.
 3) Create the Application Load Balancer (ALB):
-    - In the Amazon EC2 console, click on "Load Balancers" in the navigation pane and select "Create Load Balancer."
+    - In the Amazon EC2 console, click on "Load Balancers" in the navigation pane and select "Create Load Balancer".
     - Choose the "Application Load Balancer" type and provide a name and listener configuration for the ALB.
     - Specify the appropriate availability zones and configure the security groups for the ALB.
     - On the "Configure Routing" page, select "Create a new target group" and choose the target group created in the previous step.
@@ -307,10 +307,10 @@ To register a new domain name with Amazon Route 53, we'll utilize the AWS Manage
 ### 22- Create an A (Alias) Record in Amazon Route 53 for an Application Load Balancer (ALB)
 1) Open the AWS Management Console and navigate to the Amazon Route 53 service.
 2) Click on "Hosted Zones" in the navigation pane and select the hosted zone corresponding to your domain.
-3) Choose the domain for which you want to create the A record and click on "Create Record Set."
+3) Choose the domain for which you want to create the A record and click on "Create Record Set".
 4) In the "Create Record Set" form, leave the "Name" field blank or enter the desired subdomain prefix (e.g., "www" for www.example.com).
 5) Select "A - IPv4 address" as the record type.
-6) In the "Value/Route traffic to" section, select "Alias to Application and Classic Load Balancer."
+6) In the "Value/Route traffic to" section, select "Alias to Application and Classic Load Balancer".
 7) In the "Alias Target" dropdown menu, select the appropriate ALB associated with your web application.
 8) Review the configuration details to ensure accuracy.
 9) Click on "Create" to create the A record.
@@ -341,13 +341,13 @@ Once the DNS records have propagated, ACM will automatically verify the domain o
     - Specify the appropriate port (e.g., 443) for HTTPS traffic.
     - Configure any additional settings as needed, such as security policies and target groups.
     - Click on "Add" to add the HTTPS listener.
-    - Review the listener configuration to ensure accuracy and click on "Save changes."
+    - Review the listener configuration to ensure accuracy and click on "Save changes".
 5) Edit the HTTP listener:
-    - Select the HTTP listener and click on "Edit."
-    - Change the protocol to "Redirect to HTTPS."
+    - Select the HTTP listener and click on "Edit".
+    - Change the protocol to "Redirect to HTTPS".
     - Choose the HTTPS listener you want to redirect to from the "Redirect to" dropdown menu.
     - Set the status code to "HTTP_301" for a permanent redirect.
-    - Click on "Save changes."
+    - Click on "Save changes"
 6) Test the HTTPS listener and redirection:
     - Access your web application using the associated domain.
     - Verify that HTTP requests are automatically redirected to HTTPS.
